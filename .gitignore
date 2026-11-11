@@ -16,26 +16,13 @@ kaggle.json
 data/raw/*
 !data/raw/.gitkeep
 !data/raw/README.md
-data/processed/*
-!data/processed/.gitkeep
 
-# generated artifacts (recreate with: python -m src.pipeline)
-artifacts/models/*
-artifacts/preprocessors/*
-!artifacts/models/.gitkeep
-!artifacts/preprocessors/.gitkeep
-reports/evaluation/*
-reports/figures/*
-!reports/evaluation/.gitkeep
-!reports/figures/.gitkeep
+
+
 
 .DS_Store
 Thumbs.db
 
-# Game Lab generated files (recreate with: python -m src.games.pipeline)
-data/processed/games/*
-reports/games/*
-.ruff_cache/
 
 # local user profile (never committed)
 data/user/
