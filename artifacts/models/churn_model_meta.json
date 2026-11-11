@@ -1,0 +1,115 @@
+{
+  "model_name": "random_forest",
+  "threshold": 0.41035672499028814,
+  "numeric_features": [
+    "active_days",
+    "est_hours_online",
+    "n_sessions",
+    "mean_session_min",
+    "max_session_min",
+    "sessions_per_active_day",
+    "days_since_last_active",
+    "active_days_last7",
+    "active_days_prev7",
+    "level_last",
+    "level_gain",
+    "weekend_share",
+    "night_share",
+    "observed_tenure_days"
+  ],
+  "categorical_features": [],
+  "feature_rules": {
+    "active_days": [
+      0,
+      28.0
+    ],
+    "est_hours_online": [
+      0,
+      null
+    ],
+    "n_sessions": [
+      0,
+      null
+    ],
+    "mean_session_min": [
+      0,
+      null
+    ],
+    "max_session_min": [
+      0,
+      null
+    ],
+    "sessions_per_active_day": [
+      0,
+      null
+    ],
+    "days_since_last_active": [
+      0,
+      28.0
+    ],
+    "active_days_last7": [
+      0,
+      7
+    ],
+    "active_days_prev7": [
+      0,
+      7
+    ],
+    "level_last": [
+      1,
+      80
+    ],
+    "level_gain": [
+      0,
+      79
+    ],
+    "zones_visited": [
+      0,
+      null
+    ],
+    "has_guild": [
+      0,
+      1
+    ],
+    "guild_changes": [
+      0,
+      null
+    ],
+    "weekend_share": [
+      0,
+      1
+    ],
+    "night_share": [
+      0,
+      1
+    ],
+    "observed_tenure_days": [
+      0,
+      null
+    ]
+  },
+  "trained_at": "2026-10-26T07:13:13+00:00",
+  "data_origin": "user_provided_file",
+  "sklearn_version": "1.9.1",
+  "pandas_version": "3.0.5",
+  "numpy_version": "2.5.3",
+  "churn_definition": "Churn = zero polls in the 28-day prediction window following a cutoff, for avatars active (>= 1 active day) in the preceding 28-day observation window.",
+  "churn_spec": {
+    "observation_days": 28,
+    "prediction_days": 28,
+    "n_test_cutoffs": 3,
+    "n_train_cutoffs": 24,
+    "n_valid_cutoffs": 4,
+    "min_active_days": 1,
+    "valid_avatar_fraction": 0.15,
+    "test_avatar_fraction": 0.25,
+    "random_state": 42
+  },
+  "training_rows": 9645,
+  "test_cutoffs": [
+    "2008-12-13 00:00:00",
+    "2008-11-15 00:00:00",
+    "2008-10-18 00:00:00"
+  ],
+  "categories_seen": {}
+}
