@@ -1,0 +1,1 @@
+{"columns": [{"name": "model", "dtype": "str"}, {"name": "k", "dtype": "int64"}, {"name": "hit_rate", "dtype": "float64"}, {"name": "n_trials", "dtype": "int64"}, {"name": "ci_low", "dtype": "float64"}, {"name": "ci_high", "dtype": "float64"}], "rows": 9}
