@@ -146,7 +146,7 @@ games:
 
 # Shown on the Terms, Privacy and Help pages. Leave empty to hide a line.
 app:
-  author: ""          # for example "Your Name, Department, University"
-  contact: ""         # contact e-mail or web page
+  author: "Aayush Thapa"          # for example "Your Name, Department, University"
+  contact: " herumking1@gmail.com "         # contact e-mail or web page
   terms_version: "1.0"
   terms_date: "2026-10-30"
