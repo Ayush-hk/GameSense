@@ -1,0 +1,99 @@
+{
+  "features": [
+    "active_days",
+    "activity_regularity",
+    "est_hours_online",
+    "mean_session_min",
+    "sessions_per_active_day",
+    "level_last",
+    "level_gain",
+    "weekend_share",
+    "night_share"
+  ],
+  "features_unavailable_in_data": [
+    "zones_visited"
+  ],
+  "log_features": [
+    "active_days",
+    "est_hours_online",
+    "mean_session_min",
+    "sessions_per_active_day",
+    "level_gain"
+  ],
+  "min_active_days": 3,
+  "avatars_total": 2815,
+  "avatars_clustered": 2815,
+  "avatars_excluded_insufficient_activity": 0,
+  "chosen_k": 4,
+  "k_selection_reason": "k=4 has the highest silhouette (0.203) among the values of k whose smallest cluster holds at least 2% of avatars.",
+  "silhouette_final_sample": 0.20263887655730647,
+  "stability_ari_mean": 0.9872272728943834,
+  "stability_ari_each": [
+    0.9755265805548088,
+    0.9743550893501057,
+    0.9990274216726187,
+    1.0
+  ],
+  "pca_explained_variance_ratio": [
+    0.2744051334688919,
+    0.14694050179578497
+  ],
+  "cluster_sizes": {
+    "0": 608,
+    "1": 1687,
+    "2": 195,
+    "3": 325
+  },
+  "descriptors": {
+    "0": "higher: activity regularity (active days / lifetime span) (+1.4 SD), sessions per active day (+0.8 SD), mean session length (min) (+0.8 SD); lower: active days (-1.0 SD)",
+    "1": "lower: activity regularity (active days / lifetime span) (-0.5 SD)",
+    "2": "higher: active days (+2.1 SD); lower: mean session length (min) (-2.2 SD), levels gained in window (-1.5 SD), level at end of window (-1.3 SD)",
+    "3": "higher: level at end of window (+2.2 SD); lower: levels gained in window (-1.5 SD)"
+  },
+  "z_means": {
+    "0": {
+      "active_days": -1.0088,
+      "activity_regularity": 1.3564,
+      "est_hours_online": 0.0261,
+      "mean_session_min": 0.7966,
+      "sessions_per_active_day": 0.8454,
+      "level_last": -0.2214,
+      "level_gain": 0.3849,
+      "weekend_share": -0.1813,
+      "night_share": 0.1019
+    },
+    "1": {
+      "active_days": 0.1167,
+      "activity_regularity": -0.507,
+      "est_hours_online": -0.008,
+      "mean_session_min": -0.0246,
+      "sessions_per_active_day": -0.3302,
+      "level_last": -0.1903,
+      "level_gain": 0.3149,
+      "weekend_share": 0.0776,
+      "night_share": -0.0553
+    },
+    "2": {
+      "active_days": 2.0668,
+      "activity_regularity": -0.2738,
+      "est_hours_online": -0.1533,
+      "mean_session_min": -2.1737,
+      "sessions_per_active_day": -0.4139,
+      "level_last": -1.268,
+      "level_gain": -1.4923,
+      "weekend_share": -0.1884,
+      "night_share": 0.0538
+    },
+    "3": {
+      "active_days": 0.0416,
+      "activity_regularity": 0.2586,
+      "est_hours_online": 0.0845,
+      "mean_session_min": -0.0585,
+      "sessions_per_active_day": 0.3806,
+      "level_last": 2.1629,
+      "level_gain": -1.4592,
+      "weekend_share": 0.0493,
+      "night_share": 0.0638
+    }
+  }
+}

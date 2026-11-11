@@ -1,0 +1,268 @@
+{
+  "selected_model": "random_forest",
+  "selection_rule": "highest validation ROC-AUC among Logistic Regression and Random Forest (ties: PR-AUC)",
+  "threshold_tuned_on_validation": 0.41035672499028814,
+  "threshold_rule": "threshold maximising F1 on the validation set",
+  "validation": {
+    "dummy_prior": {
+      "threshold": 0.5,
+      "n": 283,
+      "prevalence": 0.3568904593639576,
+      "accuracy": 0.6431095406360424,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "confusion": {
+        "tn": 182,
+        "fp": 0,
+        "fn": 101,
+        "tp": 0
+      },
+      "roc_auc": 0.5,
+      "pr_auc": 0.3568904593639576
+    },
+    "recency_only": {
+      "threshold": 0.5,
+      "n": 283,
+      "prevalence": 0.3568904593639576,
+      "accuracy": 0.6607773851590106,
+      "precision": 0.5206611570247934,
+      "recall": 0.6237623762376238,
+      "f1": 0.5675675675675675,
+      "confusion": {
+        "tn": 124,
+        "fp": 58,
+        "fn": 38,
+        "tp": 63
+      },
+      "roc_auc": 0.696986182134697,
+      "pr_auc": 0.5068092351300523
+    },
+    "logistic_regression": {
+      "threshold": 0.5,
+      "n": 283,
+      "prevalence": 0.3568904593639576,
+      "accuracy": 0.6537102473498233,
+      "precision": 0.5095541401273885,
+      "recall": 0.7920792079207921,
+      "f1": 0.6201550387596899,
+      "confusion": {
+        "tn": 105,
+        "fp": 77,
+        "fn": 21,
+        "tp": 80
+      },
+      "roc_auc": 0.7505712109672505,
+      "pr_auc": 0.5730095606514284
+    },
+    "random_forest": {
+      "threshold": 0.5,
+      "n": 283,
+      "prevalence": 0.3568904593639576,
+      "accuracy": 0.6643109540636042,
+      "precision": 0.5192307692307693,
+      "recall": 0.801980198019802,
+      "f1": 0.6303501945525292,
+      "confusion": {
+        "tn": 107,
+        "fp": 75,
+        "fn": 20,
+        "tp": 81
+      },
+      "roc_auc": 0.7777173321727777,
+      "pr_auc": 0.6163782916424835
+    }
+  },
+  "test": {
+    "dummy_prior": {
+      "threshold": 0.5,
+      "n": 417,
+      "prevalence": 0.3645083932853717,
+      "accuracy": 0.6354916067146283,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "confusion": {
+        "tn": 265,
+        "fp": 0,
+        "fn": 152,
+        "tp": 0
+      },
+      "roc_auc": 0.5,
+      "pr_auc": 0.3645083932853717
+    },
+    "recency_only": {
+      "threshold": 0.5,
+      "n": 417,
+      "prevalence": 0.3645083932853717,
+      "accuracy": 0.6930455635491607,
+      "precision": 0.572289156626506,
+      "recall": 0.625,
+      "f1": 0.5974842767295597,
+      "confusion": {
+        "tn": 194,
+        "fp": 71,
+        "fn": 57,
+        "tp": 95
+      },
+      "roc_auc": 0.7288604766633565,
+      "pr_auc": 0.5563204650462935
+    },
+    "logistic_regression": {
+      "threshold": 0.5,
+      "n": 417,
+      "prevalence": 0.3645083932853717,
+      "accuracy": 0.6906474820143885,
+      "precision": 0.5529953917050692,
+      "recall": 0.7894736842105263,
+      "f1": 0.6504065040650406,
+      "confusion": {
+        "tn": 168,
+        "fp": 97,
+        "fn": 32,
+        "tp": 120
+      },
+      "roc_auc": 0.759111221449851,
+      "pr_auc": 0.5873907021589287
+    },
+    "random_forest": {
+      "threshold": 0.5,
+      "n": 417,
+      "prevalence": 0.3645083932853717,
+      "accuracy": 0.7026378896882494,
+      "precision": 0.5707070707070707,
+      "recall": 0.743421052631579,
+      "f1": 0.6457142857142857,
+      "confusion": {
+        "tn": 180,
+        "fp": 85,
+        "fn": 39,
+        "tp": 113
+      },
+      "roc_auc": 0.7715988083416088,
+      "pr_auc": 0.5765832429482523
+    }
+  },
+  "test_selected_tuned_threshold": {
+    "threshold": 0.41035672499028814,
+    "n": 417,
+    "prevalence": 0.3645083932853717,
+    "accuracy": 0.6858513189448441,
+    "precision": 0.5450643776824035,
+    "recall": 0.8355263157894737,
+    "f1": 0.6597402597402597,
+    "confusion": {
+      "tn": 159,
+      "fp": 106,
+      "fn": 25,
+      "tp": 127
+    },
+    "roc_auc": 0.7715988083416088,
+    "pr_auc": 0.5765832429482523
+  },
+  "test_bootstrap_ci": {
+    "n_boot": 500,
+    "n_avatars": 236,
+    "reference": "recency_only",
+    "models": {
+      "dummy_prior": {
+        "roc_auc": [
+          0.5,
+          0.5
+        ],
+        "pr_auc": [
+          0.3180433704397663,
+          0.4122177369270898
+        ]
+      },
+      "recency_only": {
+        "roc_auc": [
+          0.675341740844397,
+          0.7719730838793338
+        ],
+        "pr_auc": [
+          0.4787650696048922,
+          0.6399285497637413
+        ]
+      },
+      "logistic_regression": {
+        "roc_auc": [
+          0.7080273924382259,
+          0.8017445425757114
+        ],
+        "pr_auc": [
+          0.5058559472064957,
+          0.6651739371057422
+        ]
+      },
+      "random_forest": {
+        "roc_auc": [
+          0.7225563093906215,
+          0.8130074594806738
+        ],
+        "pr_auc": [
+          0.5071365595156195,
+          0.6547616599132163
+        ]
+      }
+    },
+    "roc_auc_difference_vs_reference": {
+      "dummy_prior": [
+        -0.2719730838793339,
+        -0.17534174084439705
+      ],
+      "logistic_regression": [
+        0.0016852970264662494,
+        0.057348084351493016
+      ],
+      "random_forest": [
+        0.0029059187168416975,
+        0.08275058901964066
+      ]
+    }
+  },
+  "sizes": {
+    "fit": 6601,
+    "valid": 283,
+    "refit": 9645,
+    "test": 417
+  },
+  "prevalence": {
+    "fit": 0.3201030146947432,
+    "valid": 0.3568904593639576,
+    "refit": 0.32700881285640226,
+    "test": 0.3645083932853717
+  },
+  "features": {
+    "numeric": [
+      "active_days",
+      "est_hours_online",
+      "n_sessions",
+      "mean_session_min",
+      "max_session_min",
+      "sessions_per_active_day",
+      "days_since_last_active",
+      "active_days_last7",
+      "active_days_prev7",
+      "level_last",
+      "level_gain",
+      "weekend_share",
+      "night_share",
+      "observed_tenure_days"
+    ],
+    "categorical": [],
+    "unavailable_in_data": [
+      "zones_visited",
+      "has_guild",
+      "guild_changes",
+      "charclass",
+      "race"
+    ]
+  },
+  "warnings": [
+    "Metrics describe held-out avatars over 3 out-of-time period(s) on one game server; they are not guarantees for other games, servers or periods.",
+    "Churn here means 'no activity in the prediction window' for an avatar, which is not the same as a player leaving the game."
+  ],
+  "trained_at": "2026-10-26T07:13:13+00:00",
+  "data_origin": "user_provided_file"
+}

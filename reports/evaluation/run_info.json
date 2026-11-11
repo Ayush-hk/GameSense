@@ -1,0 +1,164 @@
+{
+  "created_at": "2026-10-26T07:13:02+00:00",
+  "data_origin": "user_provided_file",
+  "raw_file": {
+    "file_name": "subset-wow.csv",
+    "file_bytes": 33290219,
+    "sha256": "03bacbc9b152ee0709e273c18f926b891504d7b0c060d72ae661364773817e18"
+  },
+  "dataset": "World of Warcraft Avatar History (WoWAH)",
+  "kaggle_url": "https://www.kaggle.com/datasets/mylesoneill/warcraft-avatar-history",
+  "versions": {
+    "python": "3.13.17",
+    "pandas": "3.0.5",
+    "numpy": "2.5.3",
+    "scikit_learn": "1.9.1"
+  },
+  "config": {
+    "dataset": {
+      "name": "World of Warcraft Avatar History (WoWAH)",
+      "kaggle_url": "https://www.kaggle.com/datasets/mylesoneill/warcraft-avatar-history",
+      "original_source_url": "https://web.cs.wpi.edu/~claypool/mmsys-dataset/2011/wow",
+      "expected_file": "wowah_data.csv",
+      "columns": {
+        "avatar": [
+          "char",
+          "avatar",
+          "avatar_id",
+          "player_id"
+        ],
+        "level": [
+          "level"
+        ],
+        "race": [
+          "race"
+        ],
+        "charclass": [
+          "charclass",
+          "class",
+          "char_class"
+        ],
+        "zone": [
+          "zone"
+        ],
+        "guild": [
+          "guild"
+        ],
+        "timestamp": [
+          "timestamp",
+          "datetime",
+          "time"
+        ]
+      },
+      "timestamp_formats": [
+        "%m/%d/%y %H:%M:%S",
+        "%Y-%m-%dT%H:%M:%S.%f",
+        "%Y-%m-%d %H:%M:%S",
+        "%m/%d/%Y %H:%M:%S",
+        "%d/%m/%y %H:%M:%S",
+        "%Y-%m-%d %H:%M:%S.%f"
+      ],
+      "min_timestamp_parse_rate": 0.99,
+      "level_range": [
+        1,
+        80
+      ],
+      "no_guild_value": -1,
+      "poll_minutes": 10,
+      "chunksize": 1000000
+    },
+    "paths": {
+      "raw_dir": "data/raw",
+      "processed_dir": "data/processed",
+      "models_dir": "artifacts/models",
+      "preprocessors_dir": "artifacts/preprocessors",
+      "evaluation_dir": "reports/evaluation",
+      "figures_dir": "reports/figures",
+      "docs_dir": "docs"
+    },
+    "sessions": {
+      "gap_minutes": 30
+    },
+    "segmentation": {
+      "min_active_days": 3,
+      "k_range": [
+        2,
+        8
+      ],
+      "min_cluster_share": 0.02,
+      "silhouette_sample": 10000,
+      "stability_seeds": 4,
+      "random_state": 42,
+      "features": [
+        "active_days",
+        "activity_regularity",
+        "est_hours_online",
+        "mean_session_min",
+        "sessions_per_active_day",
+        "level_last",
+        "level_gain",
+        "zones_visited",
+        "weekend_share",
+        "night_share"
+      ],
+      "log_features": [
+        "active_days",
+        "est_hours_online",
+        "mean_session_min",
+        "sessions_per_active_day",
+        "level_gain",
+        "zones_visited"
+      ]
+    },
+    "churn": {
+      "observation_days": 28,
+      "prediction_days": 28,
+      "n_test_cutoffs": 3,
+      "n_train_cutoffs": 24,
+      "n_valid_cutoffs": 4,
+      "min_active_days": 1,
+      "valid_avatar_fraction": 0.15,
+      "test_avatar_fraction": 0.25,
+      "random_state": 42,
+      "numeric_features": [
+        "active_days",
+        "est_hours_online",
+        "n_sessions",
+        "mean_session_min",
+        "max_session_min",
+        "sessions_per_active_day",
+        "days_since_last_active",
+        "active_days_last7",
+        "active_days_prev7",
+        "level_last",
+        "level_gain",
+        "zones_visited",
+        "has_guild",
+        "guild_changes",
+        "weekend_share",
+        "night_share",
+        "observed_tenure_days"
+      ],
+      "categorical_features": [
+        "charclass",
+        "race"
+      ]
+    },
+    "models": {
+      "random_forest": {
+        "n_estimators": 300,
+        "min_samples_leaf": 5,
+        "max_depth": null
+      },
+      "logistic_regression": {
+        "C": 1.0,
+        "max_iter": 1000
+      }
+    },
+    "explain": {
+      "shap_sample": 2000,
+      "permutation_repeats": 5,
+      "permutation_sample": 20000
+    }
+  }
+}

@@ -1,0 +1,556 @@
+{
+  "definition": "Churn = zero polls in the 28-day prediction window following a cutoff, for avatars active (>= 1 active day) in the preceding 28-day observation window.",
+  "spec": {
+    "observation_days": 28,
+    "prediction_days": 28,
+    "n_test_cutoffs": 3,
+    "n_train_cutoffs": 24,
+    "n_valid_cutoffs": 4,
+    "min_active_days": 1,
+    "valid_avatar_fraction": 0.15,
+    "test_avatar_fraction": 0.25,
+    "random_state": 42
+  },
+  "plan": {
+    "usable_data_start": "2006-01-02 00:00:00",
+    "usable_data_end": "2009-01-10 00:00:00",
+    "test_cutoff": "2008-12-13 00:00:00",
+    "test_cutoffs_newest_first": [
+      "2008-12-13 00:00:00",
+      "2008-11-15 00:00:00",
+      "2008-10-18 00:00:00"
+    ],
+    "train_cutoffs_newest_first": [
+      "2008-08-23 00:00:00",
+      "2008-07-26 00:00:00",
+      "2008-06-28 00:00:00",
+      "2008-05-31 00:00:00",
+      "2008-05-03 00:00:00",
+      "2008-04-05 00:00:00",
+      "2008-03-08 00:00:00",
+      "2008-02-09 00:00:00",
+      "2008-01-12 00:00:00",
+      "2007-12-15 00:00:00",
+      "2007-11-17 00:00:00",
+      "2007-10-20 00:00:00",
+      "2007-09-22 00:00:00",
+      "2007-08-25 00:00:00",
+      "2007-07-28 00:00:00",
+      "2007-06-30 00:00:00",
+      "2007-06-02 00:00:00",
+      "2007-05-05 00:00:00",
+      "2007-04-07 00:00:00",
+      "2007-03-10 00:00:00",
+      "2007-02-10 00:00:00",
+      "2007-01-13 00:00:00",
+      "2006-12-16 00:00:00",
+      "2006-11-18 00:00:00"
+    ]
+  },
+  "sets": {
+    "fit": {
+      "rows": 6601,
+      "churn_rate": 0.3201030146947432
+    },
+    "valid": {
+      "rows": 283,
+      "churn_rate": 0.3568904593639576
+    },
+    "refit": {
+      "rows": 9645,
+      "churn_rate": 0.32700881285640226
+    },
+    "test": {
+      "rows": 417,
+      "churn_rate": 0.3645083932853717
+    }
+  },
+  "per_cutoff_and_group": [
+    {
+      "cutoff": "2006-11-18",
+      "group": "train",
+      "rows": 259,
+      "churn_rate": 0.2277992277992278
+    },
+    {
+      "cutoff": "2006-11-18",
+      "group": "valid",
+      "rows": 72,
+      "churn_rate": 0.2222222222222222
+    },
+    {
+      "cutoff": "2006-11-18",
+      "group": "test",
+      "rows": 110,
+      "churn_rate": 0.2636363636363636
+    },
+    {
+      "cutoff": "2006-12-16",
+      "group": "train",
+      "rows": 269,
+      "churn_rate": 0.20446096654275092
+    },
+    {
+      "cutoff": "2006-12-16",
+      "group": "valid",
+      "rows": 70,
+      "churn_rate": 0.2714285714285714
+    },
+    {
+      "cutoff": "2006-12-16",
+      "group": "test",
+      "rows": 109,
+      "churn_rate": 0.26605504587155965
+    },
+    {
+      "cutoff": "2007-01-13",
+      "group": "train",
+      "rows": 288,
+      "churn_rate": 0.3159722222222222
+    },
+    {
+      "cutoff": "2007-01-13",
+      "group": "valid",
+      "rows": 66,
+      "churn_rate": 0.24242424242424243
+    },
+    {
+      "cutoff": "2007-01-13",
+      "group": "test",
+      "rows": 108,
+      "churn_rate": 0.35185185185185186
+    },
+    {
+      "cutoff": "2007-02-10",
+      "group": "train",
+      "rows": 274,
+      "churn_rate": 0.2664233576642336
+    },
+    {
+      "cutoff": "2007-02-10",
+      "group": "valid",
+      "rows": 75,
+      "churn_rate": 0.29333333333333333
+    },
+    {
+      "cutoff": "2007-02-10",
+      "group": "test",
+      "rows": 107,
+      "churn_rate": 0.308411214953271
+    },
+    {
+      "cutoff": "2007-03-10",
+      "group": "train",
+      "rows": 265,
+      "churn_rate": 0.23773584905660378
+    },
+    {
+      "cutoff": "2007-03-10",
+      "group": "valid",
+      "rows": 67,
+      "churn_rate": 0.1791044776119403
+    },
+    {
+      "cutoff": "2007-03-10",
+      "group": "test",
+      "rows": 118,
+      "churn_rate": 0.2627118644067797
+    },
+    {
+      "cutoff": "2007-04-07",
+      "group": "train",
+      "rows": 394,
+      "churn_rate": 0.2969543147208122
+    },
+    {
+      "cutoff": "2007-04-07",
+      "group": "valid",
+      "rows": 101,
+      "churn_rate": 0.38613861386138615
+    },
+    {
+      "cutoff": "2007-04-07",
+      "group": "test",
+      "rows": 164,
+      "churn_rate": 0.35365853658536583
+    },
+    {
+      "cutoff": "2007-05-05",
+      "group": "train",
+      "rows": 422,
+      "churn_rate": 0.4075829383886256
+    },
+    {
+      "cutoff": "2007-05-05",
+      "group": "valid",
+      "rows": 100,
+      "churn_rate": 0.48
+    },
+    {
+      "cutoff": "2007-05-05",
+      "group": "test",
+      "rows": 167,
+      "churn_rate": 0.47904191616766467
+    },
+    {
+      "cutoff": "2007-06-02",
+      "group": "train",
+      "rows": 324,
+      "churn_rate": 0.37037037037037035
+    },
+    {
+      "cutoff": "2007-06-02",
+      "group": "valid",
+      "rows": 74,
+      "churn_rate": 0.44594594594594594
+    },
+    {
+      "cutoff": "2007-06-02",
+      "group": "test",
+      "rows": 119,
+      "churn_rate": 0.3445378151260504
+    },
+    {
+      "cutoff": "2007-06-30",
+      "group": "train",
+      "rows": 336,
+      "churn_rate": 0.33035714285714285
+    },
+    {
+      "cutoff": "2007-06-30",
+      "group": "valid",
+      "rows": 71,
+      "churn_rate": 0.38028169014084506
+    },
+    {
+      "cutoff": "2007-06-30",
+      "group": "test",
+      "rows": 130,
+      "churn_rate": 0.38461538461538464
+    },
+    {
+      "cutoff": "2007-07-28",
+      "group": "train",
+      "rows": 326,
+      "churn_rate": 0.3312883435582822
+    },
+    {
+      "cutoff": "2007-07-28",
+      "group": "valid",
+      "rows": 68,
+      "churn_rate": 0.38235294117647056
+    },
+    {
+      "cutoff": "2007-07-28",
+      "group": "test",
+      "rows": 117,
+      "churn_rate": 0.24786324786324787
+    },
+    {
+      "cutoff": "2007-08-25",
+      "group": "train",
+      "rows": 353,
+      "churn_rate": 0.3371104815864023
+    },
+    {
+      "cutoff": "2007-08-25",
+      "group": "valid",
+      "rows": 72,
+      "churn_rate": 0.3611111111111111
+    },
+    {
+      "cutoff": "2007-08-25",
+      "group": "test",
+      "rows": 143,
+      "churn_rate": 0.3076923076923077
+    },
+    {
+      "cutoff": "2007-09-22",
+      "group": "train",
+      "rows": 350,
+      "churn_rate": 0.35428571428571426
+    },
+    {
+      "cutoff": "2007-09-22",
+      "group": "valid",
+      "rows": 84,
+      "churn_rate": 0.30952380952380953
+    },
+    {
+      "cutoff": "2007-09-22",
+      "group": "test",
+      "rows": 152,
+      "churn_rate": 0.3092105263157895
+    },
+    {
+      "cutoff": "2007-10-20",
+      "group": "train",
+      "rows": 344,
+      "churn_rate": 0.28488372093023256
+    },
+    {
+      "cutoff": "2007-10-20",
+      "group": "valid",
+      "rows": 90,
+      "churn_rate": 0.32222222222222224
+    },
+    {
+      "cutoff": "2007-10-20",
+      "group": "test",
+      "rows": 154,
+      "churn_rate": 0.36363636363636365
+    },
+    {
+      "cutoff": "2007-11-17",
+      "group": "train",
+      "rows": 345,
+      "churn_rate": 0.3101449275362319
+    },
+    {
+      "cutoff": "2007-11-17",
+      "group": "valid",
+      "rows": 92,
+      "churn_rate": 0.31521739130434784
+    },
+    {
+      "cutoff": "2007-11-17",
+      "group": "test",
+      "rows": 148,
+      "churn_rate": 0.3108108108108108
+    },
+    {
+      "cutoff": "2007-12-15",
+      "group": "train",
+      "rows": 338,
+      "churn_rate": 0.32840236686390534
+    },
+    {
+      "cutoff": "2007-12-15",
+      "group": "valid",
+      "rows": 100,
+      "churn_rate": 0.38
+    },
+    {
+      "cutoff": "2007-12-15",
+      "group": "test",
+      "rows": 152,
+      "churn_rate": 0.3026315789473684
+    },
+    {
+      "cutoff": "2008-01-12",
+      "group": "train",
+      "rows": 359,
+      "churn_rate": 0.2757660167130919
+    },
+    {
+      "cutoff": "2008-01-12",
+      "group": "valid",
+      "rows": 92,
+      "churn_rate": 0.30434782608695654
+    },
+    {
+      "cutoff": "2008-01-12",
+      "group": "test",
+      "rows": 166,
+      "churn_rate": 0.3192771084337349
+    },
+    {
+      "cutoff": "2008-02-09",
+      "group": "train",
+      "rows": 363,
+      "churn_rate": 0.325068870523416
+    },
+    {
+      "cutoff": "2008-02-09",
+      "group": "valid",
+      "rows": 96,
+      "churn_rate": 0.28125
+    },
+    {
+      "cutoff": "2008-02-09",
+      "group": "test",
+      "rows": 158,
+      "churn_rate": 0.3227848101265823
+    },
+    {
+      "cutoff": "2008-03-08",
+      "group": "train",
+      "rows": 352,
+      "churn_rate": 0.32670454545454547
+    },
+    {
+      "cutoff": "2008-03-08",
+      "group": "valid",
+      "rows": 92,
+      "churn_rate": 0.3804347826086957
+    },
+    {
+      "cutoff": "2008-03-08",
+      "group": "test",
+      "rows": 148,
+      "churn_rate": 0.30405405405405406
+    },
+    {
+      "cutoff": "2008-04-05",
+      "group": "train",
+      "rows": 338,
+      "churn_rate": 0.3698224852071006
+    },
+    {
+      "cutoff": "2008-04-05",
+      "group": "valid",
+      "rows": 84,
+      "churn_rate": 0.44047619047619047
+    },
+    {
+      "cutoff": "2008-04-05",
+      "group": "test",
+      "rows": 138,
+      "churn_rate": 0.4420289855072464
+    },
+    {
+      "cutoff": "2008-05-03",
+      "group": "train",
+      "rows": 302,
+      "churn_rate": 0.423841059602649
+    },
+    {
+      "cutoff": "2008-05-03",
+      "group": "valid",
+      "rows": 62,
+      "churn_rate": 0.3548387096774194
+    },
+    {
+      "cutoff": "2008-05-03",
+      "group": "test",
+      "rows": 119,
+      "churn_rate": 0.37815126050420167
+    },
+    {
+      "cutoff": "2008-05-31",
+      "group": "train",
+      "rows": 265,
+      "churn_rate": 0.3622641509433962
+    },
+    {
+      "cutoff": "2008-05-31",
+      "group": "valid",
+      "rows": 69,
+      "churn_rate": 0.36231884057971014
+    },
+    {
+      "cutoff": "2008-05-31",
+      "group": "test",
+      "rows": 116,
+      "churn_rate": 0.3620689655172414
+    },
+    {
+      "cutoff": "2008-06-28",
+      "group": "train",
+      "rows": 272,
+      "churn_rate": 0.25735294117647056
+    },
+    {
+      "cutoff": "2008-06-28",
+      "group": "valid",
+      "rows": 74,
+      "churn_rate": 0.32432432432432434
+    },
+    {
+      "cutoff": "2008-06-28",
+      "group": "test",
+      "rows": 120,
+      "churn_rate": 0.325
+    },
+    {
+      "cutoff": "2008-07-26",
+      "group": "train",
+      "rows": 318,
+      "churn_rate": 0.39308176100628933
+    },
+    {
+      "cutoff": "2008-07-26",
+      "group": "valid",
+      "rows": 74,
+      "churn_rate": 0.40540540540540543
+    },
+    {
+      "cutoff": "2008-07-26",
+      "group": "test",
+      "rows": 124,
+      "churn_rate": 0.3709677419354839
+    },
+    {
+      "cutoff": "2008-08-23",
+      "group": "train",
+      "rows": 278,
+      "churn_rate": 0.3381294964028777
+    },
+    {
+      "cutoff": "2008-08-23",
+      "group": "valid",
+      "rows": 66,
+      "churn_rate": 0.3333333333333333
+    },
+    {
+      "cutoff": "2008-08-23",
+      "group": "test",
+      "rows": 110,
+      "churn_rate": 0.32727272727272727
+    },
+    {
+      "cutoff": "2008-10-18",
+      "group": "train",
+      "rows": 304,
+      "churn_rate": 0.35526315789473684
+    },
+    {
+      "cutoff": "2008-10-18",
+      "group": "valid",
+      "rows": 65,
+      "churn_rate": 0.3076923076923077
+    },
+    {
+      "cutoff": "2008-10-18",
+      "group": "test",
+      "rows": 124,
+      "churn_rate": 0.28225806451612906
+    },
+    {
+      "cutoff": "2008-11-15",
+      "group": "train",
+      "rows": 317,
+      "churn_rate": 0.4416403785488959
+    },
+    {
+      "cutoff": "2008-11-15",
+      "group": "valid",
+      "rows": 76,
+      "churn_rate": 0.5263157894736842
+    },
+    {
+      "cutoff": "2008-11-15",
+      "group": "test",
+      "rows": 141,
+      "churn_rate": 0.3971631205673759
+    },
+    {
+      "cutoff": "2008-12-13",
+      "group": "train",
+      "rows": 340,
+      "churn_rate": 0.3088235294117647
+    },
+    {
+      "cutoff": "2008-12-13",
+      "group": "valid",
+      "rows": 69,
+      "churn_rate": 0.4492753623188406
+    },
+    {
+      "cutoff": "2008-12-13",
+      "group": "test",
+      "rows": 152,
+      "churn_rate": 0.40131578947368424
+    }
+  ]
+}

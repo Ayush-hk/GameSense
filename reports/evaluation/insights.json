@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Dataset scope",
+    "text": "The analysis covers 2,815 avatars and 1,017,029 polls between 2006-01-01 and 2009-01-10 (1105 days).",
+    "evidence": "reports/evaluation/dataset_profile.json"
+  },
+  {
+    "title": "Churn prediction performance",
+    "text": "On held-out avatars over the 3 newest 28-day periods (latest cutoff 2008-12-13), the selected model (random forest) reaches ROC-AUC 0.772 and PR-AUC 0.577 (prior-only baseline: ROC-AUC 0.500, PR-AUC 0.365; churn prevalence 36.5%). At the validation-tuned threshold 0.41, precision is 54.5% and recall 83.6%.",
+    "evidence": "reports/evaluation/metrics.json"
+  },
+  {
+    "title": "Caveat",
+    "text": "Metrics describe held-out avatars over 3 out-of-time period(s) on one game server; they are not guarantees for other games, servers or periods.",
+    "evidence": "reports/evaluation/metrics.json"
+  },
+  {
+    "title": "Caveat",
+    "text": "Churn here means 'no activity in the prediction window' for an avatar, which is not the same as a player leaving the game.",
+    "evidence": "reports/evaluation/metrics.json"
+  },
+  {
+    "title": "What the model relies on",
+    "text": "Most influential features (permutation importance (SHAP substitute)): days_since_last_active, level_last, n_sessions, active_days_last7, active_days. Feature attributions explain how the trained model produces its predictions. They are associations learned from observational data, not proof that changing a behaviour would cause an avatar to stay or leave.",
+    "evidence": "reports/evaluation/explainability_report.json"
+  },
+  {
+    "title": "Player segments",
+    "text": "K-Means with k=4 (silhouette 0.203, seed-stability ARI 0.987) on 2,815 avatars with >= 3 active days. The largest segment (#1) holds 59.9% of clustered avatars: lower: activity regularity (active days / lifetime span) (-0.5 SD).",
+    "evidence": "reports/evaluation/segmentation_report.json"
+  },
+  {
+    "title": "Caveat",
+    "text": "The silhouette score is low, which means segments overlap and behaviour varies continuously. Treat the segments as a descriptive summary rather than sharply separated player types.",
+    "evidence": "reports/evaluation/segmentation_report.json"
+  },
+  {
+    "title": "Recency and churn (descriptive)",
+    "text": "Observed churn is 7.3% for avatars last seen <=1 day before the cutoff versus 58.9% for those last seen >14 days before it.",
+    "evidence": "reports/evaluation/churn_rate_by_group.csv"
+  }
+]

@@ -1,0 +1,57 @@
+{
+  "rows": 1017029,
+  "avatars": 2815,
+  "date_min": "2006-01-01 00:00:07",
+  "date_max": "2009-01-10 05:08:13",
+  "span_days": 1105.2139583333333,
+  "distinct_days": 1081,
+  "level_min": 1,
+  "level_max": 80,
+  "polls_per_avatar_median": 352.0,
+  "polls_per_avatar_max": 499,
+  "zones": null,
+  "races": null,
+  "classes": null,
+  "share_rows_without_guild": null,
+  "memory_mb": 14.238538,
+  "columns": [
+    {
+      "name": "avatar",
+      "dtype": "int32",
+      "missing": 0,
+      "n_unique": 2815
+    },
+    {
+      "name": "level",
+      "dtype": "int16",
+      "missing": 0,
+      "n_unique": 80
+    },
+    {
+      "name": "timestamp",
+      "dtype": "datetime64[ns]",
+      "missing": 0,
+      "n_unique": 686021
+    }
+  ],
+  "cleaning": {
+    "rows_read": 1017282,
+    "rows_after_cleaning": 1017029,
+    "rows_removed_total": 253,
+    "duplicate_avatar_timestamp_rows_removed": 253,
+    "dropped_invalid_level": 0,
+    "dropped_unusable_avatar_or_timestamp": 0,
+    "missing_values_raw": {
+      "avatar": 0,
+      "level": 0,
+      "timestamp": 0
+    },
+    "non_numeric_values": {
+      "avatar": 0,
+      "level": 0,
+      "guild": 0
+    },
+    "timestamp_format": "%Y-%m-%dT%H:%M:%S.%f",
+    "timestamp_parse_rate_overall": 1.0
+  }
+}

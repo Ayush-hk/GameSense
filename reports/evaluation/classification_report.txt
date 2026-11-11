@@ -1,0 +1,21 @@
+Selected model: random_forest
+
+== Test set, default threshold 0.50 ==
+              precision    recall  f1-score   support
+
+    retained       0.82      0.68      0.74       265
+     churned       0.57      0.74      0.65       152
+
+    accuracy                           0.70       417
+   macro avg       0.70      0.71      0.69       417
+weighted avg       0.73      0.70      0.71       417
+
+== Test set, threshold 0.410 (tuned on validation) ==
+              precision    recall  f1-score   support
+
+    retained       0.86      0.60      0.71       265
+     churned       0.55      0.84      0.66       152
+
+    accuracy                           0.69       417
+   macro avg       0.70      0.72      0.68       417
+weighted avg       0.75      0.69      0.69       417

@@ -1,0 +1,27 @@
+{
+  "model": "random_forest",
+  "shap_installed": false,
+  "caveat": "Feature attributions explain how the trained model produces its predictions. They are associations learned from observational data, not proof that changing a behaviour would cause an avatar to stay or leave.",
+  "permutation_top_features": [
+    "days_since_last_active",
+    "level_last",
+    "n_sessions",
+    "active_days_last7",
+    "active_days",
+    "est_hours_online",
+    "sessions_per_active_day",
+    "level_gain"
+  ],
+  "method": "permutation importance (SHAP substitute)",
+  "top_features": [
+    "days_since_last_active",
+    "level_last",
+    "n_sessions",
+    "active_days_last7",
+    "active_days",
+    "est_hours_online",
+    "sessions_per_active_day",
+    "level_gain"
+  ],
+  "note": "SHAP was not used because the 'shap' package is not installed in this environment; permutation importance (drop in test ROC-AUC) is shown instead."
+}

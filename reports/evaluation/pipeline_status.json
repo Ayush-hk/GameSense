@@ -1,0 +1,27 @@
+{
+  "ingest": {
+    "status": "ok",
+    "seconds": 6.4,
+    "finished_at": "2026-10-26T07:13:02+00:00"
+  },
+  "segment": {
+    "status": "ok",
+    "seconds": 1.6,
+    "finished_at": "2026-10-26T07:13:04+00:00"
+  },
+  "churn": {
+    "status": "ok",
+    "seconds": 9.5,
+    "finished_at": "2026-10-26T07:13:13+00:00"
+  },
+  "explain": {
+    "status": "ok",
+    "seconds": 5.8,
+    "finished_at": "2026-10-26T07:13:19+00:00"
+  },
+  "report": {
+    "status": "ok",
+    "seconds": 1.5,
+    "finished_at": "2026-10-26T07:13:20+00:00"
+  }
+}

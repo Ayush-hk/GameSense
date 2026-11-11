@@ -1,0 +1,53 @@
+{
+  "file": {
+    "file_name": "subset-wow.csv",
+    "file_bytes": 33290219,
+    "sha256": "03bacbc9b152ee0709e273c18f926b891504d7b0c060d72ae661364773817e18"
+  },
+  "raw_header": [
+    "player_id",
+    "level",
+    "datetime"
+  ],
+  "column_mapping": {
+    "avatar": "player_id",
+    "level": "level",
+    "timestamp": "datetime"
+  },
+  "optional_columns_present": [],
+  "optional_columns_absent": [
+    "race",
+    "charclass",
+    "zone",
+    "guild"
+  ],
+  "timestamp_format": "%Y-%m-%dT%H:%M:%S.%f",
+  "timestamp_parse_rate_overall": 1.0,
+  "rows_read": 1017282,
+  "missing_values_raw": {
+    "avatar": 0,
+    "level": 0,
+    "timestamp": 0
+  },
+  "non_numeric_values": {
+    "avatar": 0,
+    "level": 0,
+    "guild": 0
+  },
+  "unparseable_timestamps": 0,
+  "dropped_unusable_avatar_or_timestamp": 0,
+  "dropped_invalid_level": 0,
+  "level_range_applied": [
+    1,
+    80
+  ],
+  "missing_guild_treated_as_no_guild": 0,
+  "missing_category_labelled_unknown": {
+    "race": 0,
+    "charclass": 0,
+    "zone": 0
+  },
+  "duplicate_avatar_timestamp_rows_removed": 253,
+  "rows_after_cleaning": 1017029,
+  "rows_removed_total": 253
+}
