@@ -1,0 +1,152 @@
+# GameSense configuration.
+# Paths are relative to the project root (override the root with the
+# GAMESENSE_ROOT environment variable). Every analytic decision that affects
+# results lives here so it can be audited and changed without editing code.
+
+dataset:
+  name: "World of Warcraft Avatar History (WoWAH)"
+  kaggle_url: "https://www.kaggle.com/datasets/mylesoneill/warcraft-avatar-history"
+  original_source_url: "https://web.cs.wpi.edu/~claypool/mmsys-dataset/2011/wow"
+  # Expected file name inside data/raw. If it is absent and data/raw holds exactly
+  # one .csv file, that file is used instead.
+  expected_file: "wowah_data.csv"      # full Kaggle file; the single-CSV fallback also accepts subset-wow.csv
+  # canonical column -> accepted raw header names (compared after strip + lower-case)
+  columns:
+    avatar: ["char", "avatar", "avatar_id", "player_id"]
+    level: ["level"]
+    race: ["race"]
+    charclass: ["charclass", "class", "char_class"]
+    zone: ["zone"]
+    guild: ["guild"]
+    timestamp: ["timestamp", "datetime", "time"]
+  # Tried in order; the format with the best parse rate on a sample wins.
+  # If your file uses a different format, add it here.
+  timestamp_formats:
+    - "%m/%d/%y %H:%M:%S"
+    - "%Y-%m-%dT%H:%M:%S.%f"      # lightweight subset (subset-wow.csv)
+    - "%Y-%m-%d %H:%M:%S"
+    - "%m/%d/%Y %H:%M:%S"
+    - "%d/%m/%y %H:%M:%S"
+    - "%Y-%m-%d %H:%M:%S.%f"
+  min_timestamp_parse_rate: 0.99
+  level_range: [1, 80]          # rows outside this range are dropped and counted
+  no_guild_value: -1            # guild id meaning "not in a guild"
+  poll_minutes: 10              # sampling interval documented by the dataset authors
+  chunksize: 1000000            # rows per CSV chunk (memory-conscious loading)
+
+paths:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  models_dir: "artifacts/models"
+  preprocessors_dir: "artifacts/preprocessors"
+  evaluation_dir: "reports/evaluation"
+  figures_dir: "reports/figures"
+  docs_dir: "docs"
+
+sessions:
+  gap_minutes: 30               # a gap longer than this between polls starts a new session
+
+segmentation:
+  min_active_days: 3            # avatars with fewer active days are not clustered
+  k_range: [2, 8]
+  min_cluster_share: 0.02       # candidate k is rejected if any cluster is smaller than this
+  silhouette_sample: 10000
+  stability_seeds: 4
+  random_state: 42
+  features:
+    - active_days
+    - activity_regularity
+    - est_hours_online
+    - mean_session_min
+    - sessions_per_active_day
+    - level_last
+    - level_gain
+    - zones_visited
+    - weekend_share
+    - night_share
+  log_features:                 # right-skewed counts get log1p before scaling
+    - active_days
+    - est_hours_online
+    - mean_session_min
+    - sessions_per_active_day
+    - level_gain
+    - zones_visited
+
+churn:
+  observation_days: 28          # feature window length
+  prediction_days: 28           # label window length; churn = zero activity in this window
+  n_test_cutoffs: 3             # newest periods used as the out-of-time test (each prediction_days long)
+  n_train_cutoffs: 24           # earlier cutoffs available for fitting + validation (spaced prediction_days apart)
+  n_valid_cutoffs: 4            # the newest of those are used for validation; older ones for fitting
+  min_active_days: 1            # avatar must be active in the observation window to be scored
+  valid_avatar_fraction: 0.15   # avatars held out for model selection
+  test_avatar_fraction: 0.25    # avatars held out for the final out-of-time test
+  random_state: 42
+  numeric_features:
+    - active_days
+    - est_hours_online
+    - n_sessions
+    - mean_session_min
+    - max_session_min
+    - sessions_per_active_day
+    - days_since_last_active
+    - active_days_last7
+    - active_days_prev7
+    - level_last
+    - level_gain
+    - zones_visited
+    - has_guild
+    - guild_changes
+    - weekend_share
+    - night_share
+    - observed_tenure_days
+  categorical_features:
+    - charclass
+    - race
+
+models:
+  random_forest:
+    n_estimators: 300
+    min_samples_leaf: 5
+    max_depth: null
+  logistic_regression:
+    C: 1.0
+    max_iter: 1000
+
+explain:
+  shap_sample: 2000
+  permutation_repeats: 5
+  permutation_sample: 20000
+
+games:
+  # Real data used by the Game Lab (see docs/GAMES_DATA.md for provenance and licence)
+  open_play_dir: "data/raw_games/open_play"        # Open Play dataset, data/clean tables (CC0 + re-identification clause)
+  steam_insights_dir: "data/raw_games/steam_insights"   # Steam catalogue snapshot, Oct 2024
+  out_dir: "reports/games"
+  processed_dir: "data/processed/games"
+  age_bands: [18, 23, 27, 31, 36, 99]              # lower edges; last value is the open upper edge
+  min_group_participants: 10                       # no aggregate is shown for fewer participants (privacy + stability)
+  frustration:
+    items: ["bangs_2", "bangs_4", "bangs_6"]       # autonomy / competence / relatedness FRUSTRATION items (1-7)
+    satisfaction_items: ["bangs_1", "bangs_3", "bangs_5"]
+    high_threshold: 3.0                            # session counted as "high frustration" when mean item >= 3.0
+    min_participants_per_game: 10
+    min_entries_per_game: 20
+  steam_reception:
+    min_reviews: 50
+    positive_threshold: 0.80                       # "well received" = at least 80% positive reviews
+    train_until: "2022-12-31"
+    valid_until: "2023-06-30"
+  recommender:
+    min_hours_liked: 5                             # a game counts as "played" for a user at >= 5 hours in the window
+    min_user_games: 3
+    k: 10
+    folds: 5
+  random_state: 42
+
+# Shown on the Terms, Privacy and Help pages. Leave empty to hide a line.
+app:
+  author: ""          # for example "Your Name, Department, University"
+  contact: ""         # contact e-mail or web page
+  terms_version: "1.0"
+  terms_date: "2026-10-30"

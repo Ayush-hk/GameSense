@@ -1,0 +1,4 @@
+# Optional extras. Install only if you want them:  pip install -r requirements-optional.txt
+# shap needs numba, which can lag behind the newest Python versions; without it the pipeline uses permutation importance.
+shap>=0.45
+pytest>=8.0        # the tests also run with:  python -m unittest discover -s tests -t .

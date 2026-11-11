@@ -1,0 +1,21 @@
+GAMESENSE - START HERE
+
+This folder is complete: code, results and the processed data every page reads.
+(The large raw downloads are not needed to run the app; they are only for re-running the data pipelines.)
+
+TO RUN  (PowerShell, inside this folder - the one that contains app.py):
+
+    streamlit run app.py
+
+Then open http://localhost:8501
+
+The saved data is stored in a version-independent format, so it works with the pandas / scikit-learn you already have.
+The churn model is rebuilt automatically from the saved training data the first time the Prediction Lab needs it
+(a few seconds, once).
+
+If a page says a package is missing, it prints the exact command to install it. Everything GameSense needs is in
+requirements.txt:   python -m pip install -r requirements.txt
+
+Optional extras: run_gamesense.bat / start.py find or create a private Python environment and start the app for you.
+
+Fill your name/contact in configs\config.yaml (app: author, contact) to show it on the Terms and Help pages.
